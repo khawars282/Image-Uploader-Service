@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\EnsureTokenIsValid;
+use App\Http\Controllers\PhotoController;
 
 //user
 Route::get("/login",[UserController::class,'authenticate']);
@@ -19,7 +20,7 @@ Route::group(['middleware' => ['verification']], function() {
         Route::get('/get_user', [UserController::class, 'get_user']);
         Route::post('/profile', [UserController::class, 'profile']);
 
-   
+       
 
     });
     
