@@ -4,8 +4,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\EnsureTokenIsValid;
-use App\Http\Controllers\PhotoController;
-// use App\Http\Controllers\CommentController;
 
 //user
 Route::get("/login",[UserController::class,'authenticate']);
@@ -14,29 +12,14 @@ Route::get('/EmailConfirmation/{email}', [UserController::class, 'confirmEmail']
 Route::post('/SendResetLinkResponse', [UserController::class, 'sendResetLinkResponse']);
 Route::post('/sendResetResponse/{email}/{token}', [UserController::class, 'sendResetResponse']);
 
-    Route::get('/send_photo_link_privacy', [PhotoController::class, 'sendPhotoLinkPrivacy']);
-    Route::get('/PhotoLinkAccessPrivacy/{email}/{token}', [PhotoController::class, 'PhotoLinkAccessPrivacy']);
-
+ 
 Route::group(['middleware' => ['verification']], function() {
 
         Route::get('/logout', [UserController::class, 'logout']);
         Route::get('/get_user', [UserController::class, 'get_user']);
         Route::post('/profile', [UserController::class, 'profile']);
 
-        Route::post('/photo', [PhotoController::class, 'uploadPhoto']);
-        Route::delete('/remove_photo/{id}', [PhotoController::class, 'removePhoto']);
-        Route::get('/list_all_Photos', [PhotoController::class, 'listAllPhotos']);
-
-        Route::get('/photos_find_by_name/{name}', [PhotoController::class, 'PhotosFindByName']);
-        Route::get('/photos_find_by_extensions/{extension}', [PhotoController::class, 'PhotosFindByExtensions']);
-        Route::get('/photos_find_by_privacy/{privacy}', [PhotoController::class, 'PhotosFindByPrivacy']);
-        Route::get('/photos_find_by_time/{created_at}', [PhotoController::class, 'PhotosFindByTime']);
-        
-    Route::get('/send_photo_link_privacy', [PhotoController::class, 'sendPhotoLinkPrivacy']);
-    Route::get('/photoLink/{email}/imageId/{image_id}', [PhotoController::class, 'PhotoLink']);
-    Route::get('/photoLink/{email}/imageId/{image_id}/{privacy}', [PhotoController::class, 'PhotoLinkAccessPrivacy']);
-        
-
+   
 
     });
     

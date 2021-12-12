@@ -5,7 +5,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
 
-class UsersSendResetResponse extends FormRequest
+class UsersSendResetRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
