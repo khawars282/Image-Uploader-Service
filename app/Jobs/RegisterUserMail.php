@@ -31,8 +31,7 @@ class RegisterUserMail implements ShouldQueue
      */
     public function handle()
     {
-    Mail::to($this->email)->send(new ConfirmEmail($this->url,'khawars282@gmail.com'));
-        
-        // return $this->markdown('emails.RegisterEmail');
+        // send mail 
+        Mail::to($this->email)->send(new ConfirmEmail($this->url,'khawars282@gmail.com'));
     }
 }

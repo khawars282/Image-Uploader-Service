@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Token extends Model
 {
     use HasFactory;
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
     protected $fillable = [
         'token',
         'user_id',

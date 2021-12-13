@@ -8,9 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class PasswordReset extends Model
 {
     use HasFactory;
-    
+    //timestamps  false
     public $timestamps = false;
-
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
     protected $fillable = [
         'email',
         'token',
