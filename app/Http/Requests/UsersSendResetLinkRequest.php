@@ -30,6 +30,7 @@ class UsersSendResetLinkRequest extends FormRequest
             'email' => 'required|email'
         ];
     }
+    //function validation error
     public function failedValidation(Validator $validator)
     {
        throw new HttpResponseException(response()->json([

@@ -17,7 +17,6 @@ class PhotoSendLinkPrivacyRequest extends FormRequest
         return [
                 'email' => 'required|email',
                 'image_id'=>'required|string'
-        
         ];
     }
 
@@ -33,6 +32,7 @@ class PhotoSendLinkPrivacyRequest extends FormRequest
             'image_id'=>'required|string'
         ];
     }
+    //function validation error
     public function failedValidation(Validator $validator)
     {
        throw new HttpResponseException(response()->json([

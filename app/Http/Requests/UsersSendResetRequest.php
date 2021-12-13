@@ -30,6 +30,7 @@ class UsersSendResetRequest extends FormRequest
             'password' => 'required|string'
         ];
     }
+    //function validation error
     public function failedValidation(Validator $validator)
     {
        throw new HttpResponseException(response()->json([

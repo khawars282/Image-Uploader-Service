@@ -30,6 +30,7 @@ class UsersGetRequest extends FormRequest
             'token'=>  'required|string',
         ];
     }
+    //function validation error
     public function failedValidation(Validator $validator)
     {
        throw new HttpResponseException(response()->json([

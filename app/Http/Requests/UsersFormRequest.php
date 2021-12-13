@@ -46,6 +46,7 @@ class UsersFormRequest extends FormRequest
             'image'=>'required'
         ];
     }
+    //function validation error
     public function messages() //OPTIONAL
     {
         return [

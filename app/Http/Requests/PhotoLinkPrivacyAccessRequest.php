@@ -30,6 +30,7 @@ class PhotoLinkPrivacyAccessRequest extends FormRequest
             'privacy' => 'required|string'
         ];
     }
+    //function validation error
     public function failedValidation(Validator $validator)
     {
        throw new HttpResponseException(response()->json([

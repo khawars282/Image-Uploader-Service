@@ -23,6 +23,7 @@ class UsersProfile extends FormRequest
             'image'
         ];
     }
+    //function validation error
     public function failedValidation(Validator $validator)
     {
        throw new HttpResponseException(response()->json([
