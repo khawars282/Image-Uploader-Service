@@ -44,9 +44,9 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/api.php'));
 
                  Route::prefix('photo')
-                ->middleware('photo')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/photo.php'));
+                    ->middleware('photo')
+                    ->namespace($this->namespace)
+                    ->group(base_path('routes/photo.php'));
 
             Route::middleware('web')
                 ->namespace($this->namespace)
@@ -62,6 +62,9 @@ class RouteServiceProvider extends ServiceProvider
     protected function configureRateLimiting()
     {
         RateLimiter::for('api', function (Request $request) {
+            return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
+        });
+        RateLimiter::for('photo', function (Request $request) {
             return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
         });
     }

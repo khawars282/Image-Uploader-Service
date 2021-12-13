@@ -136,7 +136,7 @@ class UserController extends Controller
                         ];
                     }
                 //response
-                    return response()-json($response, 201);
+                    return response()->json($response, 201);
                 }
             }
         catch(Throwable $ex)

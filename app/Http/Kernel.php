@@ -47,9 +47,16 @@ class Kernel extends HttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+        'photo' => [
+            // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+            EnsureFrontendRequestsAreStateful::class,
+            'throttle:photo',
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        ],
         'verification' => [ 
             \App\HTTP\Middleware\EnsureTokenIsValid::class,
         ],
+        
     ];
 
     /**
