@@ -99,13 +99,13 @@ class UserController extends Controller
                 return response()->json(['error' => $validator->messages()], 403);
             }else{
                 //find user by email
-                $user= User::where('email', $request->email)->first()->where('email_verified_at', $email_verified_at);
+                $user= User::where('email', $request->email)->first();
                 //Check user not
                 if(!isset($user)){return response()->json(['messages' => 'User not found'], 400);}
                 //find time verified_at user
-                $email_verified_at= User::where('email_verified_at', $user->email_verified_at)->first();
+                $email_verified_at= User::where('email', $user)->first()->where('email_verified_at', $user->email_verified_at)->first();
                 //Check email verified
-                dd($user);
+                dd($email_verified_at == null);
                 if(!isset($email_verified_at)){return response()->json(['messages' => 'Check Email'], 400);}
                 //find userId from table Token
                 $tokeexit = Token::where('user_id',$user->id)->first();
