@@ -20,7 +20,6 @@ use App\Http\Requests\UsersProfile;
 use App\Http\Requests\UsersSendResetLinkRequest;
 use App\Http\Requests\UsersSendResetRequest;
 use App\Providers\servce;
-use App\Http\Middleware\EnsureTokenIsValid;
 use App\Mail\ResetPasswordMail;
 use Illuminate\Support\Facades\Mail;
 
