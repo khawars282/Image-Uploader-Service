@@ -55,9 +55,7 @@ class Kernel extends HttpKernel
         ],
         'verification' => [ 
             \App\HTTP\Middleware\EnsureTokenIsValid::class,
-        ],
-        'verification.my' => [ 
-            \App\HTTP\Middleware\EnsureTokenIsValid::class,
+            \App\Http\Middleware\VerifyCsrfToken::class,
         ],
         
     ];
