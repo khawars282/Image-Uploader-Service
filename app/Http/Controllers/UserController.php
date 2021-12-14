@@ -191,6 +191,7 @@ class UserController extends Controller
     }
     public function get_user(UsersGetRequest $request)
     {
+        dd('sks');
         
         //check user request validation
         $validator =$request->validated();
