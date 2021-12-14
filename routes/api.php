@@ -14,7 +14,7 @@ Route::post('/SendResetLinkResponse', [UserController::class, 'sendResetLinkResp
 Route::post('/sendResetResponse/{email}/{token}', [UserController::class, 'sendResetResponse']);
 
 
-Route::group(['middleware' => ['verification']], function() {
+Route::group(['middleware' => ['verification.my']], function() {
 
         Route::get('/logout', [UserController::class, 'logout']);
         Route::get('/get_user', [UserController::class, 'get_user']);

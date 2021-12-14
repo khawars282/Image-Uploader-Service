@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Models\User;
 use App\Providers\servce;
 
+
 use Illuminate\Support\Facades\Validator;
 
 use Firebase\JWT\JWT;
@@ -22,7 +23,7 @@ class EnsureTokenIsValid
     public function handle(Request $request, Closure $next)
     {
     try{
-        dd("kk");
+        
         // decoded token request
         $decoded=(new servce)->decodeToken($request->bearerToken());
         // request From Middleware
