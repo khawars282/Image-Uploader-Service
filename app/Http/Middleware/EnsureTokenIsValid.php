@@ -22,6 +22,7 @@ class EnsureTokenIsValid
     public function handle(Request $request, Closure $next)
     {
     try{
+        dd("kk");
         // decoded token request
         $decoded=(new servce)->decodeToken($request->bearerToken());
         // request From Middleware
