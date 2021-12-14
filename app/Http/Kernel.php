@@ -53,10 +53,9 @@ class Kernel extends HttpKernel
             'throttle:photo',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
-        'verification' => [ 
-            \App\HTTP\Middleware\EnsureTokenIsValid::class,
-            \App\Http\Middleware\VerifyCsrfToken::class,
-        ],
+        // 'verification' => [ 
+        //     \App\HTTP\Middleware\EnsureTokenIsValid::class,
+        // ],
         
     ];
 
