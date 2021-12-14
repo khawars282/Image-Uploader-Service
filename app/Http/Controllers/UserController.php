@@ -103,7 +103,7 @@ class UserController extends Controller
                 //Check user not
                 if(!isset($user)){return response()->json(['messages' => 'User not found'], 400);}
                 //find time verified_at user
-                $email_verified_at= User::where('email', $user)->first()->orwhere('email_verified_at', $user->email_verified_at)->first();
+                $email_verified_at= User::where('email', $user->email)->first()->orwhere('email_verified_at', $user->email_verified_at)->first();
                 //Check email verified
                 dd($email_verified_at == null);
                 if(!isset($email_verified_at)){return response()->json(['messages' => 'Check Email'], 400);}
